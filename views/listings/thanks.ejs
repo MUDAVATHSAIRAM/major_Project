@@ -1,0 +1,26 @@
+<% layout("/layouts/boilerplate") %>
+<div class="thanks-container">
+    <div class="thanks-box">
+        <h2>🙏 Thanks for your valuable feedback!</h2>
+        <p>We appreciate your help in improving WanderLust.</p>
+
+        <p class="redirect-text">
+            Redirecting in <span id="timer">10</span> seconds...
+        </p>
+    </div>
+</div>
+
+<script>
+    let time = 10;
+    const timer = document.getElementById("timer");
+
+    const interval = setInterval(() => {
+        time--;
+        timer.innerText = time;
+
+        if (time === 0) {
+            clearInterval(interval);
+            window.location.href = "/listings/<%= id %>";
+        }
+    }, 1000);
+</script>
